@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me?</title>
+    <style>
+        /* Romantic background */
+        body {
+            background: url('https://media.istockphoto.com/id/157565256/photo/glowing-pink-hearts.webp?a=1&b=1&s=612x612&w=0&k=20&c=7AKv_PQ74_AUKX2FkFGiTF4wAqNM0ulO0IENGeUCSUM=') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+        /* Centered container */
+        .container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        /* Buttons */
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button#yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        button#no {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+        /* Love message styling */
+        #love-message {
+            display: none;
+            font-size: 24px;
+            color: pink;
+        }
+        /* Large love emojis */
+        .love-emoji {
+            font-size: 48px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Do You Love Me?</h1>
+        <button id="yes" onclick="window.location.href='thanks.html'">Yes</button>
+        <button id="no" onclick="moveNoButton()">No</button>
+        <p id="love-message">Thanks! ❤️❤️❤️❤️❤️</p>
+    </div>
+
+    <script>
+        // JavaScript to move "No" button to a random position
+        function moveNoButton() {
+            var noButton = document.getElementById("no");
+            var x = Math.floor(Math.random() * (window.innerWidth - noButton.clientWidth));
+            var y = Math.floor(Math.random() * (window.innerHeight - noButton.clientHeight));
+            noButton.style.left = x + 'px';
+            noButton.style.top = y + 'px';
+        }
+
+        // JavaScript to show love message when "Yes" is clicked
+        function showLoveMessage() {
+            document.querySelector(".container").style.display = "none";
+            var loveMessage = document.getElementById("love-message");
+            loveMessage.style.display = "block";
+            loveMessage.innerHTML = "Thanks! " + "❤️ ".repeat(10);
+        }
+    </script>
+</body>
+</html>
